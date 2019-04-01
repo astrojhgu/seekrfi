@@ -1,0 +1,12 @@
+[dependencies]
+ndarray = '0.12.1'
+num-traits = '0.2.6'
+
+[dependencies.fitsimg]
+path="../rust_fitsimg"
+
+[package]
+authors = ['Gu Junhua <jhgu@nao.cas.cn>']
+edition = '2018'
+name = 'seekrfi'
+version = '0.1.0'
