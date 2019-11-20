@@ -7,5 +7,5 @@ setup(
     version="1.0",
     rust_extensions=[RustExtension("pyseek.native", binding=Binding.PyO3)],
     packages=["pyseek"],
-    zip_safe=True,
+    zip_safe=False,
 )

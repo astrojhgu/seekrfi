@@ -1,8 +1,8 @@
 extern crate fitsimg;
 extern crate ndarray;
 //extern crate seekrfi;
-use ndarray::{Array2};
 use fitsimg::write_img;
+use ndarray::Array2;
 //use seekrfi::gaussian_filter;
 //use seekrfi::FlagState;
 
