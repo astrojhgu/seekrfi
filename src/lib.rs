@@ -1,16 +1,12 @@
 #![allow(non_snake_case)]
 #![allow(clippy::too_many_arguments)]
 #![allow(clippy::let_and_return)]
-#[macro_use]
-extern crate ndarray;
-extern crate num_traits;
-extern crate imageproc;
-extern crate image;
-extern crate statistical;
-extern crate fitsimg;
+
+use pyo3::prelude::*;
+use numpy::{IntoPyArray, PyArrayDyn, PyArray1, PyArray2};
 
 use num_traits::{zero, one};
-use ndarray::{Array2, Array1, ArrayView2};
+use ndarray::{Array2, Array1, ArrayView2, s};
 use image::ImageBuffer;
 use image::Luma;
 use statistical::median;
@@ -310,4 +306,29 @@ where T:num_traits::Float+std::fmt::Debug+fitsimg::TypeToImageType+fitsio::image
             mask1.map_or(
                 st_mask.clone(), |x|{!((&x)^(&st_mask))}), di_args.0, di_args.1, 2)|st_mask
     }
+}
+
+pub fn get_rfi_mask_py(data1: ArrayView2<f64>, mask1: ArrayView2<bool>, chi_1: f64, eta_i: &[f64], normalize_standing_wave: bool, suppress_dialation: bool, kernel_m: usize, kernel_n: usize, sigma_m: f64, sigma_n: f64, di_args: (usize, usize))->Array2<bool>{
+    let mask1=mask1.map(|x|{
+        if *x {FlagState::Flagged} else{FlagState::Normal}
+    });
+
+    let result=get_rfi_mask(data1, Some(mask1.view()), chi_1, eta_i, normalize_standing_wave, suppress_dialation, kernel_m, kernel_n, sigma_m, sigma_n, di_args);
+    result.map(|&x|{
+        match x{
+            FlagState::Normal=>false,
+            FlagState::Flagged=>true
+        }
+    })
+}
+
+#[pymodule]
+fn native(_py: Python, m: &PyModule)->PyResult<()>{
+    #[pyfn(m, "get_rfi_mask")]
+    fn get_csmat_py(py: Python, data: &PyArray2<f64>, mask1: &PyArray2<bool>, 
+    chi_1: f64, eta_i: &PyArray1<f64>, normalize_standing_wave: bool, suppress_dialation: bool, kernel_m: usize, kernel_n: usize, sigma_m: f64, sigma_n: f64, di_args: (usize, usize))-> Py<PyArray2<bool>>
+    {
+        get_rfi_mask_py(data.as_array(), mask1.as_array(), chi_1, eta_i.as_array().to_owned().as_slice().unwrap(), normalize_standing_wave, suppress_dialation, kernel_m, kernel_n, sigma_m, sigma_n, di_args).into_pyarray(py).to_owned()
+    }
+    Ok(())
 }

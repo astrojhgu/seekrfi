@@ -5,6 +5,9 @@ imageproc = '0.19.2'
 ndarray = '0.13.0'
 num-traits = '0.2.9'
 statistical = '1.0.0'
+pyo3 = {version="0.8.2", features=["python3", "extension-module"]}
+numpy = "0.7.0"
+
 
 [dependencies.fitsimg]
 path = '../rust_fitsimg'
@@ -14,3 +17,7 @@ authors = ['Gu Junhua <jhgu@nao.cas.cn>']
 edition = '2018'
 name = 'seekrfi'
 version = '0.1.0'
+
+[lib]
+crate-type = ['cdylib']
+name = 'native'

@@ -1,12 +1,13 @@
 extern crate fitsimg;
 extern crate ndarray;
-extern crate seekrfi;
+//extern crate seekrfi;
 use ndarray::{Array2};
 use fitsimg::write_img;
-use seekrfi::gaussian_filter;
-use seekrfi::FlagState;
+//use seekrfi::gaussian_filter;
+//use seekrfi::FlagState;
 
 fn main() {
+    /*
     let mut mat=Array2::<f64>::zeros((1024,1024));
 
     mat[(512,512)]=1.0;
@@ -25,4 +26,5 @@ fn main() {
     let mask=seekrfi::binary_mask_dialation(mask, 3,3,1).map(|&x|{x as i32});
 
     write_img("./b.fits".to_string(), &mask.into_dyn()).unwrap();
+    */
 }
