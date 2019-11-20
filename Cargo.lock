@@ -155,6 +155,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "fitsimg"
 version = "0.1.0"
+source = "git+https://github.com/astrojhgu/rust_fitsimg.git#bb2367851bba6e8483e7a43a32140787edbc1257"
 dependencies = [
  "fitsio 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "ndarray 0.13.0 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -824,7 +825,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "seekrfi"
 version = "0.1.0"
 dependencies = [
- "fitsimg 0.1.0",
+ "fitsimg 0.1.0 (git+https://github.com/astrojhgu/rust_fitsimg.git)",
  "fitsio 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "image 0.22.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "imageproc 0.19.2 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -998,6 +999,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 "checksum custom_derive 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)" = "ef8ae57c4978a2acd8b869ce6b9ca1dfe817bff704c220209fdef2c0b75a01b9"
 "checksum deflate 0.7.20 (registry+https://github.com/rust-lang/crates.io-index)" = "707b6a7b384888a70c8d2e8650b3e60170dfc6a67bb4aa67b6dfca57af4bedb4"
 "checksum either 1.5.3 (registry+https://github.com/rust-lang/crates.io-index)" = "bb1f6b1ce1c140482ea30ddd3335fc0024ac7ee112895426e0a629a6c20adfe3"
+"checksum fitsimg 0.1.0 (git+https://github.com/astrojhgu/rust_fitsimg.git)" = "<none>"
 "checksum fitsio 0.15.0 (registry+https://github.com/rust-lang/crates.io-index)" = "64141949fe7f1c9c13f685e1df4d3357e884dbc9326d0b65ac497e4a9e068b4b"
 "checksum fitsio-sys 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "f64cb7f1723c2ee9382572b10c2f93556590787e371342342fda7b12f81b24d5"
 "checksum fuchsia-cprng 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "a06f77d526c1a601b7c4cdd98f54b5eaabffc14d5f2f0296febdc7f357c6d3ba"

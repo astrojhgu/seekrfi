@@ -10,7 +10,7 @@ numpy = "0.7.0"
 
 
 [dependencies.fitsimg]
-path = '../rust_fitsimg'
+git="https://github.com/astrojhgu/rust_fitsimg.git"
 
 [package]
 authors = ['Gu Junhua <jhgu@nao.cas.cn>']
