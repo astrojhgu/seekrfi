@@ -1,9 +1,9 @@
 [dependencies]
-fitsio = '0.14.1'
-image = '0.21.0'
-imageproc = '0.18.0'
-ndarray = '0.12.1'
-num-traits = '0.2.6'
+fitsio = '0.15.0'
+image = '0.22.3'
+imageproc = '0.19.2'
+ndarray = '0.13.0'
+num-traits = '0.2.9'
 statistical = '1.0.0'
 
 [dependencies.fitsimg]
