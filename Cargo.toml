@@ -1,9 +1,13 @@
 [dependencies]
+fitsio = '0.14.1'
+image = '0.21.0'
+imageproc = '0.18.0'
 ndarray = '0.12.1'
 num-traits = '0.2.6'
+statistical = '1.0.0'
 
 [dependencies.fitsimg]
-path="../rust_fitsimg"
+path = '../rust_fitsimg'
 
 [package]
 authors = ['Gu Junhua <jhgu@nao.cas.cn>']
